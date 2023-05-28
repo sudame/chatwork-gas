@@ -111,8 +111,8 @@ chatwork.rooms.roomId(1234).messages.unread.put(params);
 - [x] `GET /rooms/{room_id}`
 - [ ] `PUT /rooms/{room_id}`
 - [ ] `DELETE /rooms/{room_id}`
-- [ ] `GET /rooms/{room_id}/members`
-- [ ] `PUT /rooms/{room_id}/members`
+- [x] `GET /rooms/{room_id}/members`
+- [x] `PUT /rooms/{room_id}/members`
 - [x] `GET /rooms/{room_id}/messages`
 - [x] `POST /rooms/{room_id}/messages`
 - [ ] `PUT /rooms/{room_id}/messages/read`
