@@ -1,0 +1,25 @@
+on: push
+jobs:
+    deploy_to_gas:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: シークレット環境変数を~/.clasprc.jsonに書き込み
+              run: echo -e '${{ secrets.CLASPRC }}' > ~/.clasprc.json
+
+            - name: 依存関係のインストール
+              run: npm ci --include=dev
+
+            - name: claspのログイン状態をチェック
+              run: npx clasp login --status
+
+            - name: Google Apps Script向けのビルド
+              run: npm run build:gas
+
+            - name: Google Apps Scriptにデプロイ
+              run: npm run deploy
