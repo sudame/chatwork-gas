@@ -9,7 +9,7 @@ export type FetchChatworkArgs = {
   /** HTTPメソッド */
   method: "post" | "get" | "delete" | "put";
   /** 追加のパラメータ */
-  params?: Record<string, any>;
+  params?: Record<string, string | number> | undefined;
 };
 
 /** ChatworkのAPIから返されるレートリミットの情報 */
@@ -40,16 +40,41 @@ export type FetchChatworkResult<T = any> = {
 export function fetchChatwork<T>(
   args: FetchChatworkArgs
 ): FetchChatworkResult<T> {
-  const url = BASE_URL + args.path;
-  const response = UrlFetchApp.fetch(url, {
+  let url = BASE_URL + args.path;
+
+  // HTTP GETリクエストの場合、URL末尾にパラメータ文字列を付与する
+  if (args.params !== undefined && args.method === "get") {
+    const keyEquealValue = Object.entries(args.params).map((keyValue) => {
+      const [key, value] = keyValue;
+      return `${key}=${value}`;
+    });
+    url = url + "?" + keyEquealValue.join("&");
+  }
+
+  const request: GoogleAppsScript.URL_Fetch.URLFetchRequestOptions = {
     method: args.method,
     headers: {
       "x-chatworktoken": args.apiToken,
     },
     muteHttpExceptions: true,
-  });
+  };
 
+  // HTTP POST/PUTリクエストの場合、リクエストオブジェクトのpayloadにパラメータを付与する
+  if (
+    args.params !== undefined &&
+    (args.method === "post" || args.method === "put")
+  ) {
+    const payload: GoogleAppsScript.URL_Fetch.Payload = {};
+    Object.entries(args.params).forEach((keyValue) => {
+      const [key, value] = keyValue;
+      payload[key] = value;
+    });
+    request.payload = payload;
+  }
+
+  const response = UrlFetchApp.fetch(url, request);
   const headers: Record<string, any> = response.getHeaders();
+  const responseText = response.getContentText();
 
   return {
     rateLimit: {
@@ -58,6 +83,6 @@ export function fetchChatwork<T>(
       reset: headers["x-ratelimit-rest"],
     },
     statusCode: response.getResponseCode(),
-    data: JSON.parse(response.getContentText()),
+    data: JSON.parse(responseText === "" ? "[]" : responseText),
   };
 }
