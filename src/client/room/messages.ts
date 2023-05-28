@@ -9,6 +9,16 @@ export type GetRoomMessagesParams = {
   forece: number;
 };
 
+export type PostRoomMessagesParams = {
+  /** メッセージ本文 */
+  body: string;
+  /**
+   * 投稿するメッセージを自分から見て未読にするか。
+   * 0を指定した場合（既定）は既読、1を指定した場合は未読にします。
+   */
+  self_unread?: 0 | 1;
+};
+
 export class RoomMessagesRepository {
   constructor(
     private readonly apiToken: string,
@@ -24,6 +34,22 @@ export class RoomMessagesRepository {
     return fetchChatwork({
       apiToken: this.apiToken,
       method: "get",
+      path: `/rooms/${this.roomId}/messages`,
+      params,
+    });
+  }
+
+  /**
+   * チャットにメッセージを投稿する
+   *
+   * @see https://developer.chatwork.com/reference/post-rooms-room_id-messages
+   */
+  post(
+    params: PostRoomMessagesParams
+  ): FetchChatworkResult<Pick<Message, "message_id">> {
+    return fetchChatwork({
+      apiToken: this.apiToken,
+      method: "post",
       path: `/rooms/${this.roomId}/messages`,
       params,
     });
