@@ -1,0 +1,9 @@
+node_modules
+
+# 成果物ディレクトリ
+types-dist
+dist
+
+# プロジェクト直下
+/*.js
+/*.ts

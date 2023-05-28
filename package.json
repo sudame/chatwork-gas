@@ -1,0 +1,43 @@
+{
+  "name": "@sudame/chatwork-gas",
+  "files": [
+    "types-dist"
+  ],
+  "version": "1.0.0",
+  "description": "Google Apps Script用のChatworkクライアント",
+  "types": "./types-dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "build:gas": "webpack",
+    "build:types": "tsc -p tsconfig.type.json",
+    "build": "npm run build:gas && npm run build:types",
+    "deploy": "clasp push"
+  },
+  "author": "Mikihiro SUDA",
+  "license": "MPL",
+  "devDependencies": {
+    "@google/clasp": "^2.4.2",
+    "@tsconfig/strictest": "^2.0.1",
+    "@types/eslint": "^8.40.0",
+    "@types/google-apps-script": "^1.0.64",
+    "@types/jest": "^29.5.1",
+    "@types/webpack": "^5.28.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "copy-webpack-plugin": "^11.0.0",
+    "esbuild-jest": "^0.5.0",
+    "esbuild-loader": "^3.0.1",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1"
+  }
+}

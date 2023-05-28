@@ -1,0 +1,5 @@
+node_modules
+
+# 成果物ディレクトリ
+types-dist
+dist
