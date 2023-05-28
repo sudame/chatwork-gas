@@ -1,11 +1,16 @@
 import { type FetchChatworkResult, fetchChatwork } from "../../httpClient";
 import type { Room } from "../../model/room";
+import { RoomMessagesRepository } from "./messages";
 
 export class RoomRepository {
+  public readonly messages: RoomMessagesRepository;
+
   constructor(
     private readonly apiToken: string,
     private readonly roomId: number
-  ) {}
+  ) {
+    this.messages = new RoomMessagesRepository(apiToken, roomId);
+  }
 
   /**
    * チャットの情報を取得する

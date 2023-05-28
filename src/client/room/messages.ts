@@ -4,7 +4,7 @@ import type { Message } from "../../model/message";
 export class RoomMessagesRepository {
   constructor(
     private readonly apiToken: string,
-    private readonly roomId: string
+    private readonly roomId: number
   ) {}
 
   /**
