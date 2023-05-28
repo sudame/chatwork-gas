@@ -30,7 +30,7 @@ export class RoomMessagesRepository {
    *
    * @see https://developer.chatwork.com/reference/get-rooms-room_id-messages
    */
-  get(params?: GetRoomMessagesParams): FetchChatworkResult<Message> {
+  get(params?: GetRoomMessagesParams): FetchChatworkResult<Message[]> {
     return fetchChatwork({
       apiToken: this.apiToken,
       method: "get",
