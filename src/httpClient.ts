@@ -64,10 +64,10 @@ export function fetchChatwork<T>(
     args.params !== undefined &&
     (args.method === "post" || args.method === "put")
   ) {
-    const payload: GoogleAppsScript.URL_Fetch.Payload = {};
+    const payload: Record<string, string> = {};
     Object.entries(args.params).forEach((keyValue) => {
       const [key, value] = keyValue;
-      payload[key] = value;
+      payload[key] = String(value);
     });
     request.payload = payload;
   }
