@@ -97,18 +97,18 @@ chatwork.rooms.roomId(1234).messages.unread.put(params);
 
 ## 実装状況
 
-- [ ] `GET /me`
+- [x] `GET /me`
 - [ ] `GET /my/status`
 - [ ] `GET /my/tasks`
 - [ ] `GET /contacts`
-- [ ] `GET /rooms`
+- [x] `GET /rooms`
 - [ ] `POST /rooms`
-- [ ] `GET /rooms/{room_id}`
+- [x] `GET /rooms/{room_id}`
 - [ ] `PUT /rooms/{room_id}`
 - [ ] `DELETE /rooms/{room_id}`
 - [ ] `GET /rooms/{room_id}/members`
 - [ ] `PUT /rooms/{room_id}/members`
-- [ ] `GET /rooms/{room_id}/messages`
+- [x] `GET /rooms/{room_id}/messages`
 - [ ] `POST /rooms/{room_id}/messages`
 - [ ] `PUT /rooms/{room_id}/messages/read`
 - [ ] `PUT /rooms/{room_id}/messages/unread`
