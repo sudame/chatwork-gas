@@ -1,5 +1,6 @@
 import { type FetchChatworkResult, fetchChatwork } from "../../httpClient";
 import type { Message } from "../../model/message";
+import { MessageRepository } from "./message";
 
 export type GetRoomMessagesParams = {
   /**
@@ -24,6 +25,11 @@ export class RoomMessagesRepository {
     private readonly apiToken: string,
     private readonly roomId: number
   ) {}
+
+  /** 個々のメッセージを操作する */
+  messageId(messageId: string): MessageRepository {
+    return new MessageRepository(this.apiToken, this.roomId, messageId);
+  }
 
   /**
    * チャットのメッセージ一覧を取得する

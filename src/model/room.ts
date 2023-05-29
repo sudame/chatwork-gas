@@ -20,3 +20,22 @@ export type Room = {
 };
 
 export type RoomInList = Omit<Room, "description">;
+
+export type RoomIconPreset =
+  | "group"
+  | "check"
+  | "document"
+  | "meeting"
+  | "event"
+  | "project"
+  | "business"
+  | "study"
+  | "security"
+  | "star"
+  | "idea"
+  | "heart"
+  | "magcup"
+  | "beer"
+  | "music"
+  | "sports"
+  | "travel";

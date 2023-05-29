@@ -105,21 +105,21 @@ chatwork.rooms.roomId(1234).messages.unread.put(params);
 - [x] `GET /me`
 - [x] `GET /my/status`
 - [x] `GET /my/tasks`
-- [ ] `GET /contacts`
+- [x] `GET /contacts`
 - [x] `GET /rooms`
-- [ ] `POST /rooms`
+- [x] `POST /rooms`
 - [x] `GET /rooms/{room_id}`
-- [ ] `PUT /rooms/{room_id}`
-- [ ] `DELETE /rooms/{room_id}`
+- [x] `PUT /rooms/{room_id}`
+- [x] `DELETE /rooms/{room_id}`
 - [x] `GET /rooms/{room_id}/members`
 - [x] `PUT /rooms/{room_id}/members`
 - [x] `GET /rooms/{room_id}/messages`
 - [x] `POST /rooms/{room_id}/messages`
 - [ ] `PUT /rooms/{room_id}/messages/read`
 - [ ] `PUT /rooms/{room_id}/messages/unread`
-- [ ] `GET /rooms/{room_id}/messages/{message_id}`
-- [ ] `PUT /rooms/{room_id}/messages/{message_id}`
-- [ ] `DELETE /rooms/{room_id}/messages/{message_id}`
+- [x] `GET /rooms/{room_id}/messages/{message_id}`
+- [x] `PUT /rooms/{room_id}/messages/{message_id}`
+- [x] `DELETE /rooms/{room_id}/messages/{message_id}`
 - [x] `GET /rooms/{room_id}/tasks`
 - [ ] `POST /rooms/{room_id}/tasks`
 - [ ] `GET /rooms/{room_id}/tasks/{task_id}`
