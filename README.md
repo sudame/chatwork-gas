@@ -17,7 +17,7 @@ Google Apps Script のための Chatwork クライアント
 1KDjPcT6QSGO-urrEPV9BtQyaxAke27Cv_lA3-EhusZTIeGZ3qi0GzOHL
 ```
 
-![Google Apps Scriptのエディタ上の左側に、「コード」や「サービス」と並んで「ライブラリ」のボタンがあります。](docs/add_library_on_gas.png)
+![Google Apps Scriptのエディタ上の左側に、「コード」や「サービス」と並んで「ライブラリ」のボタンがあります。](https://github.com/sudame/chatwork-gas/raw/main/docs/add_library_on_gas.png)
 
 ### コード例
 
