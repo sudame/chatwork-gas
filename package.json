@@ -3,7 +3,7 @@
   "files": [
     "types-dist"
   ],
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Google Apps Script用のChatworkクライアント",
   "types": "./types-dist/index.d.ts",
   "scripts": {
